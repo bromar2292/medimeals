@@ -1,0 +1,88 @@
+import React from "react";
+
+import { NavLink } from "react-router-dom";
+import menu from "./hamburger.png";
+import { HamburgerSpin } from "react-animated-burgers";
+class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selection: 0,
+      isActive: true
+    };
+  }
+  toggleButton = () => {
+    this.setState({ isActive: !this.state.isActive });
+    console.log(this.state.isActive);
+  };
+  false = () => {
+    this.setState({ isActive: true });
+  };
+
+  render() {
+    return (
+      <>
+        <div className="navContainer">
+          <div className="navbar">
+            {/* {menu.map((selection, index) => (
+          <NavLink to={selection.path}>
+            <h2> {selection.label}</h2>
+          </NavLink>
+        ))} */}
+            <div>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <h4 className="home"> OS </h4>
+              </NavLink>
+            </div>
+
+            <img
+              className="hamburger"
+              isActive={this.state.isActive}
+              src={menu}
+              alt="hamburger"
+              onClick={this.toggleButton}
+            />
+
+       
+            <div className="nav-menu">
+              <NavLink to="/projects" style={{ textDecoration: "none" }}>
+                <h4 className="projects"> Projects </h4>
+              </NavLink>
+              <NavLink to="/experience" style={{ textDecoration: "none" }}>
+                <h4 className="experience"> Experience</h4>
+              </NavLink>
+              <NavLink to="/contact" style={{ textDecoration: "none" }}>
+                <h4 className="contact">About </h4>
+              </NavLink>
+            </div>
+          </div>
+        </div>
+        <div className={`${this.state.isActive}`}>
+          <a
+            href="/projects"
+            style={{ textDecoration: "none" }}
+            onClick={this.false}
+          >
+            <div onClick={this.false} className="hamburger-menu">
+              {" "}
+              Immune System
+            </div>
+          </a>
+          <a href="/experience" style={{ textDecoration: "none" }}>
+            <div className="hamburger-menu" onClick={this.false}>
+              {" "}
+             Home
+            </div>
+          </a>
+          <a href="/contact" style={{ textDecoration: "none" }}>
+            <div onClick={this.false} className="hamburger-menu">
+              {" "}
+              About
+            </div>
+          </a>
+        </div>
+      </>
+    );
+  }
+}
+export default Nav;

@@ -1,0 +1,22 @@
+.disease-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.disease-vitamins {
+  display: flex;
+  margin: 10px 0px;
+}
+.recipe-slider {
+  display: flex;
+  object-fit: cover;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 300px;
+  width: 300px;
+  margin: 10px 0px;
+  border: solid 1px white;
+}
